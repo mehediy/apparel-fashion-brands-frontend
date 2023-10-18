@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Brand = ({ brand }) => {
   return (
     <Link
-      to={`/${brand.id}`}
+      to={`/brand/${brand.id}`}
       className="shadow-md hover:shadow-lg transition duration-150 hover:ease-in-out flex items-center justify-center flex-col p-4"
     >
       <div className="flex items-center justify-center h-[200px]">
