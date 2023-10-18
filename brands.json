@@ -1,0 +1,32 @@
+[
+  {
+    "id": "bata",
+    "brand_name": "Bata",
+    "logo": "https://i.ibb.co/S3LCGwr/bata.png"
+  },
+  {
+    "id": "apex",
+    "brand_name": "Apex",
+    "logo": " https://i.ibb.co/0qy5HmH/apex.png"
+  },
+  {
+    "id": "aarong",
+    "brand_name": "Aarong",
+    "logo": "https://i.ibb.co/5WsQxcS/aarong.webp"
+  },
+  {
+    "id": "easy",
+    "brand_name": "Easy Fashion",
+    "logo": "https://i.ibb.co/52nrp1L/easy.png"
+  },
+  {
+    "id": "lareve",
+    "brand_name": "La Reve",
+    "logo": " https://i.ibb.co/yQLkzJ1/la-reve.png"
+  },
+  {
+    "id": "calvinklein",
+    "brand_name": "Calvin Klein",
+    "logo": "https://i.ibb.co/LZxBcZ2/calvin.png"
+  }
+]
