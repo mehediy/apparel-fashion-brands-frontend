@@ -8,3 +8,9 @@ body {
   font-family: "Jost", sans-serif;
   font-size: 18px;
 }
+
+.active {
+  @apply bg-secondary-1;
+  @apply text-primary;
+  @apply font-medium;
+}
