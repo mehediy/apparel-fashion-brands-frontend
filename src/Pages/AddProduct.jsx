@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 
 const AddProduct = () => {
   const [brands, setBrands] = useState([]);
-  const [currentBrand, setCurrentBrand] = useState("");
+  const [currentBrandId, setCurrentBrandId] = useState("");
+
+  const selectedBrand = brands?.find((brand) => brand.id === currentBrandId);
+  //   console.log(selectedBrand);
+  //   console.log(currentBrandId);
 
   useEffect(() => {
     fetch("./brands.json")
@@ -16,14 +20,23 @@ const AddProduct = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const brand = form.brand.value;
+    const brand = selectedBrand.brand_name;
     const type = form.type.value;
     const price = form.price.value;
+    const description = form.description.value;
     const image = form.image.value;
     const rating = form.rating.value;
 
-    const newProduct = { name, brand, type, price, image, rating };
-    console.log(newProduct);
+    const newProduct = { name, brand, type, price, description, image, rating };
+    fetch(`http://localhost:5000/products/${currentBrandId}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (
@@ -50,7 +63,7 @@ const AddProduct = () => {
               <select
                 className="block outline outline-1 outline-gray-2 focus:outline-primary my-2 p-2 w-full text-base font-normal rounded-md"
                 name="brand"
-                onChange={(e) => setCurrentBrand(e.target.value)}
+                onChange={(e) => setCurrentBrandId(e.target.value)}
                 defaultValue={""}
                 required
               >
@@ -58,7 +71,7 @@ const AddProduct = () => {
                   Select brand
                 </option>
                 {brands.map((brand) => (
-                  <option key={brand.id} value={brand.brand_name}>
+                  <option key={brand.id} value={brand.id}>
                     {brand.brand_name}
                   </option>
                 ))}
@@ -78,7 +91,7 @@ const AddProduct = () => {
                   Select type
                 </option>
                 {brands
-                  ?.find((brand) => brand.brand_name === currentBrand)
+                  ?.find((brand) => brand.id === currentBrandId)
                   ?.types?.map((type) => (
                     <option key={type}>{type}</option>
                   ))}
