@@ -26,7 +26,7 @@ const UpdateProduct = () => {
       .then((data) => setProduct(data));
   }, []);
 
-  console.log(product);
+  //   console.log(product);
 
   const updateProductHandler = (e) => {
     e.preventDefault();
@@ -39,13 +39,22 @@ const UpdateProduct = () => {
     const image = form.image.value;
     const rating = form.rating.value;
 
-    const newProduct = { name, brand, type, price, description, image, rating };
-    fetch(`http://localhost:5000/products/${currentBrandId}`, {
-      method: "POST",
+    const updatedProduct = {
+      name,
+      brand,
+      type,
+      price,
+      description,
+      image,
+      rating,
+    };
+
+    fetch(`http://localhost:5000/products/${currentBrandId}/${id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(updatedProduct),
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
