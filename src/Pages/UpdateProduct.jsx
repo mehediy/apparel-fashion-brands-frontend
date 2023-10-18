@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const AddProduct = () => {
+const UpdateProduct = () => {
+  const { id, brand } = useParams();
   const [brands, setBrands] = useState([]);
   const [currentBrandId, setCurrentBrandId] = useState("");
+
+  const [product, setProduct] = useState({});
 
   const selectedBrand = brands?.find((brand) => brand.id === currentBrandId);
   //   console.log(selectedBrand);
@@ -16,7 +20,15 @@ const AddProduct = () => {
       });
   }, []);
 
-  const addProductHandler = (e) => {
+  useEffect(() => {
+    fetch(`http://localhost:5000/products/${brand}/${id}`)
+      .then((res) => res.json())
+      .then((data) => setProduct(data));
+  }, []);
+
+  console.log(product);
+
+  const updateProductHandler = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -42,10 +54,10 @@ const AddProduct = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center flex flex-col gap-2 pb-16">
-        <h1 className="text-dark text-5xl">Add Product</h1>
-        <h3 className="text-gray-3">Arrived new product? Add it!</h3>
+        <h1 className="text-dark text-5xl">Update Product</h1>
+        <h3 className="text-gray-3">Need to change something? Update it!</h3>
       </div>
-      <form className="max-w-2xl mx-auto" onSubmit={addProductHandler}>
+      <form className="max-w-2xl mx-auto" onSubmit={updateProductHandler}>
         <div className="flex gap-4">
           <div className="grid grid-cols-2 gap-4 w-full">
             <label className="font-medium text-xl">
@@ -55,6 +67,7 @@ const AddProduct = () => {
                 type="text"
                 name="name"
                 placeholder="Enter product name"
+                defaultValue={product.name}
                 required
               />
             </label>
@@ -64,7 +77,7 @@ const AddProduct = () => {
                 className="block outline outline-1 outline-gray-2 focus:outline-primary my-2 p-2 w-full text-base font-normal rounded-md"
                 name="brand"
                 onChange={(e) => setCurrentBrandId(e.target.value)}
-                defaultValue={""}
+                defaultValue={product.brand}
                 required
               >
                 <option value={""} disabled>
@@ -83,13 +96,10 @@ const AddProduct = () => {
               <select
                 className="block outline outline-1 outline-gray-2 focus:outline-primary my-2 p-2 w-full text-base font-normal rounded-md"
                 name="type"
-                defaultValue={""}
                 required
               >
                 {/* Brand specific types */}
-                <option disabled value="">
-                  Select type
-                </option>
+                <option>{product.type}</option>
                 {brands
                   ?.find((brand) => brand.id === currentBrandId)
                   ?.types?.map((type) => (
@@ -105,6 +115,7 @@ const AddProduct = () => {
                 type="number"
                 name="price"
                 placeholder="Enter product price in Taka"
+                defaultValue={product.price}
                 required
               />
             </label>
@@ -115,6 +126,7 @@ const AddProduct = () => {
                 className="block outline outline-1 outline-gray-2 focus:outline-primary my-2 p-2 w-full text-base font-normal rounded-md"
                 name="description"
                 placeholder="Enter product short description"
+                defaultValue={product.description}
                 required
               />
             </label>
@@ -126,6 +138,7 @@ const AddProduct = () => {
                 type="text"
                 name="image"
                 placeholder="Enter image URL"
+                defaultValue={product.image}
                 required
               />
             </label>
@@ -139,6 +152,7 @@ const AddProduct = () => {
                 placeholder="Rating between 0 - 5"
                 min={0}
                 max={5}
+                defaultValue={product.rating}
                 required
               />
             </label>
@@ -147,7 +161,7 @@ const AddProduct = () => {
               type="submit"
               className="bg-secondary-1 text-2xl py-1 block w-full font-normal rounded-md col-span-2 outline outline-1 outline-primary hover:bg-primary hover:text-white transition duration-150 hover:ease-in-out"
             >
-              Add Product
+              Update Product
             </button>
           </div>
         </div>
@@ -156,4 +170,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;
