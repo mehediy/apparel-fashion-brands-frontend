@@ -2,31 +2,79 @@
   {
     "id": "bata",
     "brand_name": "Bata",
-    "logo": "https://i.ibb.co/S3LCGwr/bata.png"
+    "logo": "https://i.ibb.co/S3LCGwr/bata.png",
+    "types": [
+      "Men's Casual Shoes",
+      "Men's Sports Shoes",
+      "Men's Formal Shoes",
+      "Men's Sandals",
+      "Men's Slippers",
+      "Women's Casual Shoes",
+      "Women's High Heels",
+      "Women's Sandals",
+      "Women's Slippers"
+    ]
   },
   {
     "id": "apex",
     "brand_name": "Apex",
-    "logo": " https://i.ibb.co/0qy5HmH/apex.png"
+    "logo": " https://i.ibb.co/0qy5HmH/apex.png",
+    "types": [
+      "Men's Casual Shoes",
+      "Men's Sports Shoes",
+      "Men's Formal Shoes",
+      "Men's Sandals",
+      "Men's Slippers",
+      "Women's Casual Shoes",
+      "Women's High Heels",
+      "Women's Sandals",
+      "Women's Slippers"
+    ]
   },
   {
     "id": "aarong",
     "brand_name": "Aarong",
-    "logo": "https://i.ibb.co/5WsQxcS/aarong.webp"
+    "logo": "https://i.ibb.co/5WsQxcS/aarong.webp",
+    "types": [
+      "Shirt",
+      "T-Shirt",
+      "Panjabi",
+      "Trouser",
+      "Jean",
+      "Skirt",
+      "Saree",
+      "Salwar kameez"
+    ]
   },
   {
     "id": "easy",
     "brand_name": "Easy Fashion",
-    "logo": "https://i.ibb.co/52nrp1L/easy.png"
+    "logo": "https://i.ibb.co/52nrp1L/easy.png",
+    "types": ["Shirt", "T-Shirt", "Panjabi", "Trouser", "Jeans"]
   },
   {
-    "id": "lareve",
-    "brand_name": "La Reve",
-    "logo": " https://i.ibb.co/yQLkzJ1/la-reve.png"
+    "id": "lereve",
+    "brand_name": "Le Reve",
+    "logo": " https://i.ibb.co/yQLkzJ1/la-reve.png",
+    "types": ["Shirt", "T-Shirt", "Panjabi", "Sharee", "Salwar kameez"]
   },
   {
     "id": "calvinklein",
     "brand_name": "Calvin Klein",
-    "logo": "https://i.ibb.co/LZxBcZ2/calvin.png"
+    "logo": "https://i.ibb.co/LZxBcZ2/calvin.png",
+    "types": [
+      "Underwear",
+      "Jeans",
+      "Suits",
+      "Shirt",
+      "T-shirt",
+      "Sweater",
+      "Handbag",
+      "Shoes",
+      "Fragrance",
+      "Accessories",
+      "Swimwear",
+      "Sleepwear"
+    ]
   }
 ]
