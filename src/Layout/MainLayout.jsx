@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Header/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../Components/Footer";
 
 const MainLayout = () => {
   return (
@@ -10,6 +11,7 @@ const MainLayout = () => {
       <Navbar />
       <ToastContainer autoClose={2000} theme="light" />
       <Outlet />
+      <Footer />
     </div>
   );
 };
