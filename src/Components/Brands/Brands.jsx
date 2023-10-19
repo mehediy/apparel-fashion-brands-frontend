@@ -12,7 +12,7 @@ const Brands = () => {
   return (
     <div className="container mx-auto pt-16 pb-16 px-4 lg:px-8">
       <div className="pb-8 text-center">
-        <h2 className="text-dark text-5xl font-medium">Brands</h2>
+        <h2 className="text-dark text-5xl font-medium pb-2">Brands</h2>
         <h3 className="text-gray-3">Favorite brands in one place</h3>
       </div>
 

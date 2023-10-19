@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import ProductCard from "../Components/Shop/ProductCard";
-import Slider from "../Components/Shop/Slider";
 
-const Products = () => {
-  const { brand } = useParams();
+const LatestProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${brand}`)
+    fetch(`http://localhost:5000/latest_products`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
   return (
-    <div className="container mx-auto">
-      <Slider />
+    <div className="container mx-auto py-16 px-4 lg:px-8">
+      <div className="pb-8 text-center">
+        <h2 className="text-dark text-5xl font-medium pb-2">New Arrivals</h2>
+        <h3 className="text-gray-3">Latest products at a glance</h3>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 px-2">
         {products.map((product) => (
           <ProductCard key={product._id} productData={product} />
@@ -24,4 +24,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default LatestProducts;

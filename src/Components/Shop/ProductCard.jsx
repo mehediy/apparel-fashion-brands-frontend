@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ productData, brandId }) => {
-  const { _id, name, brand, type, image, price, rating } = productData;
+const ProductCard = ({ productData }) => {
+  const { _id, brandId, name, brand, type, image, price, rating } = productData;
   return (
     <div className="relative shadow-md hover:shadow-lg transition duration-150 hover:ease-in-out flex items-center justify-center flex-col gap-4 p-4">
       <div className="rounded h-[300px] flex items-center justify-center overflow-hidden">
