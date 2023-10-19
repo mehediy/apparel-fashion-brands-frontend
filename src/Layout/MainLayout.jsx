@@ -6,11 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="bg-white text-dark">
       <Navbar />
       <ToastContainer autoClose={2000} theme="light" />
       <Outlet />
-    </>
+    </div>
   );
 };
 

@@ -78,7 +78,7 @@ const Login = () => {
             </button>
             <button
               onClick={googleLoginHandler}
-              className="bg-accent-1 text-white text-2xl py-1 block w-full font-normal rounded-md col-span-2  hover:bg-primary transition duration-150 hover:ease-in-out"
+              className="bg-secondary-1 text-2xl py-1 block w-full font-normal rounded-md col-span-2 outline outline-1 outline-primary hover:bg-primary hover:text-white transition duration-150 hover:ease-in-out"
             >
               Login with Google
             </button>

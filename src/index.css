@@ -4,9 +4,73 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* --color-primary: 333deg 100% 50%; */
+    /* ... */
+    --color-gray-1: 0deg 0% 94%;
+    --color-gray-2: 0deg 0% 85%;
+    --color-gray-3: 0deg 0% 20%;
+
+    --color-white: 0deg 0% 100%;
+    --color-dark: 111deg 16% 15%;
+    --color-primary: 333deg 100% 50%;
+    --color-secondary-1: 328deg 100% 97%;
+    --color-secondary-2: 1deg 69% 86%;
+    --color-accent-1: 222deg 100% 61%;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-gray-1: 0deg 0% 94%;
+      --color-gray-2: 0deg 0% 85%;
+      --color-gray-3: 0deg 0% 20%;
+
+      --color-white: 0deg 0% 100%;
+      --color-dark: 111deg 16% 15%;
+      --color-primary: 333deg 100% 50%;
+      --color-secondary-1: 328deg 100% 97%;
+      --color-secondary-2: 1deg 69% 86%;
+      --color-accent-1: 222deg 100% 61%;
+    }
+    :root[data-theme="dark"] {
+      --color-gray-1: 0deg 0% 20%;
+      --color-gray-2: 0deg 0% 70%;
+      --color-gray-3: 0deg 0% 94%;
+
+      --color-white: 111deg 0% 15%;
+      --color-dark: 0deg 0% 100%;
+      --color-primary: 0deg 0% 100%;
+      --color-secondary-1: 0deg 0% 20%;
+      --color-secondary-2: 111deg 16% 15%;
+      --color-accent-1: 0deg 0% 94%;
+    }
+    :root[data-theme="light"] {
+      --color-gray-1: 0deg 0% 94%;
+      --color-gray-2: 0deg 0% 85%;
+      --color-gray-3: 0deg 0% 20%;
+
+      --color-white: 0deg 0% 100%;
+      --color-dark: 111deg 16% 15%;
+      --color-primary: 333deg 100% 50%;
+      --color-secondary-1: 328deg 100% 97%;
+      --color-secondary-2: 1deg 69% 86%;
+      --color-accent-1: 222deg 100% 61%;
+    }
+  }
+}
+
+abc {
+  color: #000000;
+}
+
 body {
   font-family: "Jost", sans-serif;
   font-size: 18px;
+}
+
+body,
+html {
+  background-color: var(--color-white);
 }
 
 .active {
@@ -20,4 +84,11 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
+}
+
+input,
+select,
+textarea {
+  color: var(--color-dark);
+  background-color: var(--color-white);
 }
