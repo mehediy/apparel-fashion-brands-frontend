@@ -5,6 +5,8 @@ import AddProduct from "./Pages/AddProduct";
 import UpdateProduct from "./Pages/UpdateProduct";
 import ProductDetails from "./Pages/ProductDetails";
 import Products from "./Pages/Products";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 const routes = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const routes = createBrowserRouter([
       {
         path: "/brand/:brand/:id",
         element: <ProductDetails />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
