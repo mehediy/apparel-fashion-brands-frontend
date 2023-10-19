@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { createUser, auth } = useContext(AuthContext);
   const registerHandler = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -8,7 +12,17 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    const user = { name, photo, email, password };
+    // const user = { name, photo, email, password };
+
+    createUser(email, password)
+      .then((userCredential) => {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photo,
+        });
+        console.log(userCredential.user);
+      })
+      .catch((error) => console.error(error.code));
   };
   return (
     <div className="container mx-auto px-4 py-12">
