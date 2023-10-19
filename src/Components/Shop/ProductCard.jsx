@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ productData, brandId }) => {
   const { _id, name, brand, type, image, price, rating } = productData;
   return (
-    <div className="relative shadow-md hover:shadow-lg transition duration-150 hover:ease-in-out flex items-center justify-center flex-col p-4">
-      <img src={image} alt={name} />
+    <div className="relative shadow-md hover:shadow-lg transition duration-150 hover:ease-in-out flex items-center justify-center flex-col gap-4 p-4">
+      <div className="rounded h-[300px] flex items-center justify-center overflow-hidden">
+        <img className="w-full" src={image} alt={name} />
+      </div>
       <div className="absolute top-2 left-2 text-base text-white bg-accent-1 px-2 py-1 rounded-md">
         <span>{brand}</span>
       </div>
-      <div className="flex flex-col gap-1 text-base">
+      <div className="flex flex-col w-full gap-1 text-base">
         <span className="text-sm text-gray-3">{type}</span>
         <Link to={`/brand/${brandId}/${_id}`}>
           <h2 className="font-medium text-lg">{name}</h2>
