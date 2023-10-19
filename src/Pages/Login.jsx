@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
   const { loginUser, googleLogin } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,23 +17,25 @@ const Login = () => {
     // const user = { email, password };
     loginUser(email, password)
       .then((userCredential) => {
+        setLoginError("");
         // Signed in
         navigate(location?.state ? location.state : "/");
-        console.log(userCredential.user);
+        // console.log(userCredential.user);
         // ...
       })
       .catch((error) => {
-        console.error(error.code);
+        setLoginError(error.code);
       });
   };
 
   const googleLoginHandler = () => {
     googleLogin()
       .then((res) => {
+        setLoginError("");
         console.log("Successfully logged in");
         navigate(location?.state ? location.state : "/");
       })
-      .catch((error) => console.log(error.code));
+      .catch((error) => setLoginError(error.code));
   };
 
   return (
@@ -61,6 +64,8 @@ const Login = () => {
                 required
               />
             </label>
+
+            <span className="text-sm text-primary">{loginError}</span>
 
             <button
               type="submit"

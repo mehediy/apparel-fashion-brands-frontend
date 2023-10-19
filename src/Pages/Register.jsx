@@ -1,10 +1,13 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser, auth } = useContext(AuthContext);
+  const [registerError, setRegisterError] = useState("");
+  const navigate = useNavigate();
+
   const registerHandler = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,15 +17,28 @@ const Register = () => {
     const password = form.password.value;
     // const user = { name, photo, email, password };
 
+    setRegisterError("");
+    if (password.length < 6) {
+      setRegisterError("Password should be at least 6 characters");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setRegisterError("Password should have at least 1 uppercase letter");
+      return;
+    } else if (!/[~!@#$%^^&*()_+]/.test(password)) {
+      setRegisterError("Password should have at least 1 special character");
+      return;
+    }
+
     createUser(email, password)
       .then((userCredential) => {
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photo,
         });
+        navigate("/");
         console.log(userCredential.user);
       })
-      .catch((error) => console.error(error.code));
+      .catch((error) => setRegisterError(error.code));
   };
   return (
     <div className="container mx-auto px-4 py-12">
@@ -69,6 +85,8 @@ const Register = () => {
                 required
               />
             </label>
+
+            <span className="text-sm text-primary">{registerError}</span>
 
             <button
               type="submit"
