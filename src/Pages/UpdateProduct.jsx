@@ -59,13 +59,15 @@ const UpdateProduct = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center flex flex-col gap-2 pb-16">
-        <h1 className="text-dark text-5xl">Update Product</h1>
+        <h1 className="text-dark text-4xl sm:text-5xl font-medium">
+          Update Product
+        </h1>
         <h3 className="text-gray-3">Need to change something? Update it!</h3>
       </div>
       <form className="max-w-2xl mx-auto" onSubmit={updateProductHandler}>
         <div className="flex gap-4">
           <div className="grid grid-cols-2 gap-4 w-full">
-            <label className="font-medium text-xl">
+            <label className="font-medium text-xl col-span-2 md:col-span-1">
               Name
               <input
                 className="block outline outline-1 outline-gray-2 focus:outline-primary my-2 p-2 w-full text-base font-normal rounded-md"
@@ -76,7 +78,7 @@ const UpdateProduct = () => {
                 required
               />
             </label>
-            <label className="font-medium text-xl">
+            <label className="font-medium text-xl col-span-2 md:col-span-1">
               Brand
               {loading || (
                 <select
@@ -98,7 +100,7 @@ const UpdateProduct = () => {
               )}
             </label>
 
-            <label className="font-medium text-xl">
+            <label className="font-medium text-xl col-span-2 md:col-span-1">
               Type
               {loading || (
                 <select
@@ -120,7 +122,7 @@ const UpdateProduct = () => {
               )}
             </label>
 
-            <label className="font-medium text-xl">
+            <label className="font-medium text-xl col-span-2 md:col-span-1">
               Price
               <input
                 className="block outline outline-1 outline-gray-2 focus:outline-primary my-2 p-2 w-full text-base font-normal rounded-md"
@@ -155,7 +157,7 @@ const UpdateProduct = () => {
               />
             </label>
 
-            <label className="font-medium text-xl">
+            <label className="font-medium text-xl col-span-2 md:col-span-1">
               Rating
               <input
                 className="block outline outline-1 outline-gray-2 focus:outline-primary my-2 p-2 w-full text-base font-normal rounded-md"
@@ -171,7 +173,7 @@ const UpdateProduct = () => {
 
             <button
               type="submit"
-              className="bg-secondary-1 text-2xl py-1 block w-full font-normal rounded-md col-span-2 outline outline-1 outline-primary hover:bg-primary hover:text-white transition duration-150 hover:ease-in-out"
+              className="bg-secondary-1 text-lg md:text-2xl py-1 block w-full font-normal rounded-md col-span-2 outline outline-1 outline-primary hover:bg-primary hover:text-white transition duration-150 hover:ease-in-out"
             >
               Update Product
             </button>
