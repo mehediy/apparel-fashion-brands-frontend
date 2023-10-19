@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <>
-      <div className="max-w-[1920px] mx-auto h-[600px] 2xl:h-[800px]">
+      <div className="max-w-[1920px] mx-auto h-[200px] sm:h-[350px] md:h-[600px] 2xl:h-[800px]">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -35,22 +35,22 @@ const Banner = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <Link to={"/lereve"}>
+            <Link to={"/brand/lereve"}>
               <img src={banner1} />
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to={"/bata"}>
+            <Link to={"/brand/bata"}>
               <img src={banner2} />
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to={"/aarong"}>
+            <Link to={"/brand/aarong"}>
               <img src={banner3} />
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to={"/aarong"}>
+            <Link to={"/brand/aarong"}>
               <img src={banner4} />
             </Link>
           </SwiperSlide>
