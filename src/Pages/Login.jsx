@@ -1,12 +1,24 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
   const loginHandler = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    const user = { email, password };
+    // const user = { email, password };
+    loginUser(email, password)
+      .then((userCredential) => {
+        // Signed in
+        console.log(userCredential.user);
+        // ...
+      })
+      .catch((error) => {
+        console.error(error.code);
+      });
   };
   return (
     <div className="container mx-auto px-4 py-12">
