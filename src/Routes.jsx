@@ -7,6 +7,7 @@ import ProductDetails from "./Pages/ProductDetails";
 import Products from "./Pages/Products";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 const routes = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ const routes = createBrowserRouter([
       {
         path: "/add-product",
         loader: () => fetch("/brands.json"),
-        element: <AddProduct />,
+        element: (
+          <PrivateRoutes>
+            <AddProduct />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/brand/:brand",
@@ -30,11 +35,19 @@ const routes = createBrowserRouter([
         path: "/brand/:brand/update/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.brand}/${params.id}`),
-        element: <UpdateProduct />,
+        element: (
+          <PrivateRoutes>
+            <UpdateProduct />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/brand/:brand/:id",
-        element: <ProductDetails />,
+        element: (
+          <PrivateRoutes>
+            <ProductDetails />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",
