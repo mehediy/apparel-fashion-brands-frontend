@@ -9,10 +9,12 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import Cart from "./Pages/Cart";
+import ErrorPage from "./Pages/ErrorPage";
 
 const routes = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage />,
     element: <MainLayout />,
     children: [
       {
