@@ -16,7 +16,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Slider = () => {
   return (
     <>
-      <div className="max-w-[1920px] mx-auto h-[400px] 2xl:h-[700px]">
+      <div className="max-w-[1920px] mx-auto h-[200px] md:h-[450px] xl:h-[600px]">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
