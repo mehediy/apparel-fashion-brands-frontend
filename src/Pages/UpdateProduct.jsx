@@ -45,7 +45,7 @@ const UpdateProduct = () => {
       rating,
     };
 
-    fetch(`http://localhost:5000/products/${currentBrandId}/${id}`, {
+    fetch(`http://localhost:5000/product/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

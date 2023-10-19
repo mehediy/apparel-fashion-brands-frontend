@@ -6,10 +6,15 @@ const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const { image, brand, name, description, price } = product;
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${brandId}/${id}`)
+    fetch(`http://localhost:5000/product/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
+
+  const addToCartHandler = (id) => {
+    console.log(id);
+  };
+
   return (
     <div className="container mx-auto px-4 pb-8">
       <div className="flex flex-col items-start gap-2">
@@ -22,7 +27,10 @@ const ProductDetails = () => {
         <h1 className="text-4xl">{name}</h1>
         <p>{description}</p>
         <p className="font-medium">Price: {price} Tk</p>
-        <button className="bg-primary text-white hover:bg-accent-1 px-4 py-1 rounded y transition duration-150 hover:ease-in-out text-center">
+        <button
+          onClick={() => addToCartHandler(id)}
+          className="bg-primary text-white hover:bg-accent-1 px-4 py-1 rounded y transition duration-150 hover:ease-in-out text-center"
+        >
           Add to cart
         </button>
       </div>

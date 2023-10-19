@@ -24,7 +24,7 @@ const ProductCard = ({ productData, brandId }) => {
             Details
           </Link>
           <Link
-            to={`/brand/${brandId}/update/${_id}`}
+            to={`/product/update/${_id}`}
             className="bg-white hover:bg-accent-1 hover:text-white px-2 py-1 rounded outline outline-1 outline-gray-2 hover:outline-accent-1 transition duration-150 hover:ease-in-out w-full text-center"
           >
             Update
