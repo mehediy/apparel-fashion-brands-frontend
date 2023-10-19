@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className="shadow-sm">
-      <div className="container mx-auto py-4 px-4 flex justify-between items-center">
+      <div className="container mx-auto py-4 px-2 md:px-4 flex flex-col md:flex-row gap-6 md:gap-2 justify-between items-center">
         <div>
           <Link to={"/"}>
             <h1 className="text-4xl font-semibold text-primary">Apparel</h1>
@@ -21,7 +21,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <ul className="flex gap-2 items-center">
+        <ul className="flex gap-2 items-center text-base md:text-lg">
           <li>
             <NavLink
               className="px-4 py-2 transition duration-100 hover:ease-in-out rounded-md bg-white hover:bg-secondary-1 text-dark hover:text-primary"
@@ -50,8 +50,8 @@ const Navbar = () => {
         </ul>
 
         {user ? (
-          <div className="flex items-center gap-2">
-            <p>{user.displayName}</p>
+          <div className="flex items-center">
+            <p className="hidden sm:block pr-4">{user.displayName}</p>
             <div className="rounded-full w-10 h-10  overflow-hidden">
               <img className="w-full" src={user.photoURL} />
             </div>
