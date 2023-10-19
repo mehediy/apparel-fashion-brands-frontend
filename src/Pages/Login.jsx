@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleLogin } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,6 +25,16 @@ const Login = () => {
         console.error(error.code);
       });
   };
+
+  const googleLoginHandler = () => {
+    googleLogin()
+      .then((res) => {
+        console.log("Successfully logged in");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => console.log(error.code));
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-sm mx-auto px-8 py-4">
@@ -57,6 +67,12 @@ const Login = () => {
               className="bg-secondary-1 text-2xl py-1 block w-full font-normal rounded-md col-span-2 outline outline-1 outline-primary hover:bg-primary hover:text-white transition duration-150 hover:ease-in-out"
             >
               Login
+            </button>
+            <button
+              onClick={googleLoginHandler}
+              className="bg-accent-1 text-white text-2xl py-1 block w-full font-normal rounded-md col-span-2  hover:bg-primary transition duration-150 hover:ease-in-out"
+            >
+              Login with Google
             </button>
             <span className="text-center text-gray-3 text-sm hover:text-primary pt-4 transition duration-150 hover:ease-in-out">
               <Link to={"/register"}>Don't have an account? Register!</Link>
