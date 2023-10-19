@@ -1,20 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const AddProduct = () => {
-  const [brands, setBrands] = useState([]);
+  const brands = useLoaderData();
   const [currentBrandId, setCurrentBrandId] = useState("");
 
   const selectedBrand = brands?.find((brand) => brand.id === currentBrandId);
-  //   console.log(selectedBrand);
-  //   console.log(currentBrandId);
-
-  useEffect(() => {
-    fetch("/brands.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setBrands(data);
-      });
-  }, []);
 
   const addProductHandler = (e) => {
     e.preventDefault();

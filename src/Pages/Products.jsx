@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ProductCard from "./ProductCard";
-import Slider from "./Slider";
+import ProductCard from "../Components/Shop/ProductCard";
+import Slider from "../Components/Shop/Slider";
 
 const Products = () => {
   const { brand } = useParams();
