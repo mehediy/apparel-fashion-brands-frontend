@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddProduct = () => {
   const brands = useLoaderData();
@@ -27,7 +28,13 @@ const AddProduct = () => {
       body: JSON.stringify(newProduct),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.acknowledged == true) {
+          toast.success("Product added!");
+        } else {
+          toast.error("Something is wrong.");
+        }
+      });
   };
 
   return (

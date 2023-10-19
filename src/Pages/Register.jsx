@@ -36,7 +36,8 @@ const Register = () => {
           photoURL: photo,
         });
         navigate("/");
-        console.log(userCredential.user);
+        // console.log(userCredential.user);
+        toast.success("Registered successfully!");
       })
       .catch((error) => setRegisterError(error.code));
   };

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateProduct = () => {
   const { id } = useParams();
@@ -53,7 +54,12 @@ const UpdateProduct = () => {
       body: JSON.stringify(updatedProduct),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        // console.log(data);
+        if (data.acknowledged) {
+          toast.success("Product updated!");
+        }
+      });
   };
 
   return (
