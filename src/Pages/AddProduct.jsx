@@ -19,7 +19,6 @@ const AddProduct = () => {
     const price = form.price.value;
     const description = form.description.value;
     const image = form.image.value;
-    const rating = form.rating.value;
 
     const newProduct = { name, brand, type, price, description, image, rating };
     fetch(`http://localhost:5000/products/${currentBrandId}`, {
@@ -33,8 +32,6 @@ const AddProduct = () => {
       .then((data) => {
         if (data.acknowledged == true) {
           toast.success("Product added!");
-        } else {
-          toast.error("Something is wrong.");
         }
       });
   };

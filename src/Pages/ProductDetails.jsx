@@ -1,5 +1,6 @@
+import { Rating } from "@smastrom/react-rating";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -18,8 +19,8 @@ const ProductDetails = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex gap-8 flex-col md:flex-row">
-        <div className="h-[300px] w-full md:w-[40%] sm:h-[400] md:h-[500px] overflow-hidden rounded">
-          <img className="" src={image} />
+        <div className="h-full w-full md:w-[40%] overflow-hidden rounded">
+          <img className="h-full" src={image} />
         </div>
         <div className="w-full md:w-[60%] flex flex-col gap-4 items-start">
           <div className="text-base text-white bg-accent-1 px-2 py-1 rounded-md">
@@ -28,12 +29,22 @@ const ProductDetails = () => {
           <h1 className="text-3xl font-medium md:text-4xl">{name}</h1>
           <p>{description}</p>
           <p className="font-medium">Price: {price} Tk</p>
-          <button
-            onClick={() => addToCartHandler(id)}
-            className="bg-primary text-white hover:bg-accent-1 px-4 py-1 rounded y transition duration-150 hover:ease-in-out text-center"
-          >
-            Add to cart
-          </button>
+          <Rating style={{ maxWidth: 120 }} value={product.rating} readOnly />
+
+          <div className="flex gap-2">
+            <button
+              onClick={() => addToCartHandler(id)}
+              className="bg-primary text-white hover:bg-accent-1 px-4 py-1 rounded y transition duration-150 hover:ease-in-out text-center outline outline-1 outline-primary hover:outline-accent-1"
+            >
+              Add to cart
+            </button>
+            <Link
+              to={`/product/update/${id}`}
+              className="bg-white hover:bg-accent-1 hover:text-white px-4 py-1 rounded y transition duration-150 hover:ease-in-out text-center outline outline-1 outline-gray-2 hover:outline-accent-1"
+            >
+              Update
+            </Link>
+          </div>
         </div>
       </div>
     </div>

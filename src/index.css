@@ -39,10 +39,10 @@
 
       --color-white: 111deg 0% 15%;
       --color-dark: 0deg 0% 100%;
-      --color-primary: 0deg 0% 100%;
+      --color-primary: 0deg 0% 90%;
       --color-secondary-1: 0deg 0% 20%;
       --color-secondary-2: 111deg 16% 15%;
-      --color-accent-1: 0deg 0% 94%;
+      --color-accent-1: 0deg 0% 100%;
     }
     :root[data-theme="light"] {
       --color-gray-1: 0deg 0% 94%;
