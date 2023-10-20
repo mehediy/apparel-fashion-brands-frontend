@@ -1,8 +1,10 @@
 import { Rating } from "@smastrom/react-rating";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const ProductDetails = () => {
+  const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const { image, brand, name, description, price } = product;
@@ -13,7 +15,22 @@ const ProductDetails = () => {
   }, []);
 
   const addToCartHandler = (id) => {
-    console.log(id);
+    const email = user.email;
+    const cart = [id];
+
+    const newCart = { email, cart };
+    console.log(newCart);
+    fetch(`http://localhost:5000/user/${email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCart),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
