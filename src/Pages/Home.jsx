@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Banner from "../Components/Header/Banner";
 import Brands from "../Components/Brands/Brands";
 import LatestProducts from "../Components/LatestProducts";
 import Instagram from "../Components/Instagram";

@@ -11,7 +11,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Slider = ({ banners }) => {
   return (
     <>
-      <div className="max-w-[1920px] mx-auto h-[200px] md:h-[450px] xl:h-[600px]">
+      <div className="max-w-[1920px] mx-auto h-[250px] md:h-[450px] xl:h-[600px] 2xl:h-[800px]">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
