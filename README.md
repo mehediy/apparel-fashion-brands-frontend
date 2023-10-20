@@ -1,8 +1,15 @@
-# React + Vite
+# Apparel - Fashion Brands Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Link: [https://apparel-1e5f0.web.app](https://apparel-1e5f0.web.app/)
 
-Currently, two official plugins are available:
+### Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse products of different brands
+- Create account with email / Login with google account
+- View details of products `*`
+- Add/Update products `*`
+- Add to cart, see added cart items and delete from cart `*`
+- Toast notification for successful operations
+- Toggle dark/light mode
+
+`(*) Marked features are available to logged in users`
