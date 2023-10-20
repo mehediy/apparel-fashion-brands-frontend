@@ -11,29 +11,29 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-dark text-white py-16">
+      <footer className="bg-gray-1 text-dark py-16">
         <div className="max-w-3xl mx-auto px-2 grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
-            <h3 className="text-4xl pb-2 font-semibold text-white text-center md:text-left">
+            <h3 className="text-4xl pb-2 font-semibold text-center md:text-left">
               Apparel
             </h3>
-            <span className="block text-sm text-gray-2 text-center md:text-left">
+            <span className="block text-sm text-center md:text-left">
               Elegance in Fashion
             </span>
           </div>
           <div className="flex flex-col items-center md:items-start gap-2">
-            <h3 className="font-medium text-xl text-gray-1">Products</h3>
-            <ul className="text-gray-2 flex flex-row md:flex-col gap-2 flex-wrap justify-center items-start">
+            <h3 className="font-medium text-xl">Products</h3>
+            <ul className="font-normal flex flex-row md:flex-col gap-4 flex-wrap justify-center items-start">
               {brands.map((item) => (
                 <li key={item.id}>
-                  <Link to={`/${item.id}`}>{item.brand_name}</Link>
+                  <Link to={`brand/${item.id}`}>{item.brand_name}</Link>
                 </li>
               ))}
             </ul>
           </div>
           <div className="flex flex-col items-center md:items-start gap-2">
-            <h3 className="font-medium text-xl text-gray-1">Products</h3>
-            <ul className="text-gray-2 flex flex-row md:flex-col gap-2 flex-wrap justify-center items-start">
+            <h3 className="font-medium text-xl">Pages</h3>
+            <ul className="font-normal flex flex-row md:flex-col gap-4 flex-wrap justify-center items-start">
               <li>
                 <Link to={"/"}>Home</Link>
               </li>
@@ -46,9 +46,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <p className="text-center text-base pt-8 text-gray-2">
-          © 2023 - By Mehedi
-        </p>
+        <p className="text-center text-base pt-8">© 2023 - By Mehedi</p>
       </footer>
     </>
   );

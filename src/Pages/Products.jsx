@@ -10,7 +10,7 @@ const Products = () => {
     fetch(`http://localhost:5000/products/${brand}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [brand]);
 
   return (
     <div className="container mx-auto">
