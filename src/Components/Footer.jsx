@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [brands, setBrands] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     fetch("/brands.json")
       .then((res) => res.json())
-      .then((data) => setBrands(data));
+      .then((data) => {
+        setBrands(data);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -23,13 +28,17 @@ const Footer = () => {
           </div>
           <div className="flex flex-col items-center md:items-start gap-2">
             <h3 className="font-medium text-xl">Products</h3>
-            <ul className="font-normal flex flex-row md:flex-col gap-4 flex-wrap justify-center items-start">
-              {brands.map((item) => (
-                <li key={item.id}>
-                  <Link to={`brand/${item.id}`}>{item.brand_name}</Link>
-                </li>
-              ))}
-            </ul>
+            {loading ? (
+              <p>...</p>
+            ) : (
+              <ul className="font-normal flex flex-row md:flex-col gap-4 flex-wrap justify-center items-start">
+                {brands.map((item) => (
+                  <li key={item.id}>
+                    <Link to={`brand/${item.id}`}>{item.brand_name}</Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div className="flex flex-col items-center md:items-start gap-2">
             <h3 className="font-medium text-xl">Pages</h3>

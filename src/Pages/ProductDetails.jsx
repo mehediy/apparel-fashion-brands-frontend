@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const ProductDetails = () => {
-  const { brand: brandId, id } = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState([]);
   const { image, brand, name, description, price } = product;
   useEffect(() => {
