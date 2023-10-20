@@ -26,8 +26,11 @@ const Instagram = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 px-2">
           {images.map((item) => (
-            <div className="h-[150px] sm:h-[250px] overflow-hidden rounded shadow hover:shadow-md">
-              <img className="w-full" key={item.id} src={item.url} />
+            <div
+              key={item.id}
+              className="h-[150px] sm:h-[250px] overflow-hidden rounded shadow hover:shadow-md"
+            >
+              <img className="w-full" src={item.url} />
             </div>
           ))}
         </div>

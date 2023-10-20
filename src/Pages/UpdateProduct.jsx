@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Rating } from "@smastrom/react-rating";
 
 const UpdateProduct = () => {
   const { id } = useParams();
@@ -8,6 +9,7 @@ const UpdateProduct = () => {
   const [brands, setBrands] = useState([]);
   const [currentBrandId, setCurrentBrandId] = useState(product.brandId);
   const [loading, setLoading] = useState(true);
+  const [rating, setRating] = useState(product.rating);
 
   const selectedBrand = brands?.find((brand) => brand.id === currentBrandId);
   // console.log(selectedBrand);
@@ -33,7 +35,6 @@ const UpdateProduct = () => {
     const price = form.price.value;
     const description = form.description.value;
     const image = form.image.value;
-    const rating = form.rating.value;
 
     const updatedProduct = {
       name,
@@ -163,23 +164,19 @@ const UpdateProduct = () => {
               />
             </label>
 
-            <label className="font-medium text-xl col-span-2 md:col-span-1">
-              Rating
-              <input
-                className="block outline outline-1 outline-gray-2 focus:outline-primary my-2 p-2 w-full text-base font-normal rounded-md"
-                type="number"
-                name="rating"
-                placeholder="Rating between 0 - 5"
-                min={0}
-                max={5}
-                defaultValue={product.rating}
-                required
+            <div className="col-span-2 md:col-span-1 flex gap-2 items-center">
+              <p className="font-medium text-xl ">Rating</p>
+
+              <Rating
+                style={{ maxWidth: 150 }}
+                value={rating}
+                onChange={setRating}
               />
-            </label>
+            </div>
 
             <button
               type="submit"
-              className="bg-secondary-1 text-lg md:text-2xl py-1 block w-full font-normal rounded-md col-span-2 outline outline-1 outline-primary hover:bg-primary hover:text-white transition duration-150 hover:ease-in-out"
+              className="mt-4 bg-secondary-1 text-lg md:text-2xl py-1 block w-full font-normal rounded-md col-span-2 outline outline-1 outline-primary hover:bg-primary hover:text-white transition duration-150 hover:ease-in-out"
             >
               Update Product
             </button>
