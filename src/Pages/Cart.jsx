@@ -55,7 +55,7 @@ const Cart = () => {
   // console.log(cartItems);
 
   return (
-    <div className="container mx-auto px-4 py-4">
+    <div className="container mx-auto px-4 pt-4 pb-16">
       <h1 className="text-3xl lg:text-5xl text-center font-medium py-8">
         My Cart
       </h1>
@@ -63,7 +63,7 @@ const Cart = () => {
       {loading == true ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {cartProducts.map((product) => (
             <CartCard
               key={product._id}
