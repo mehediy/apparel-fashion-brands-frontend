@@ -2,6 +2,7 @@ import { Rating } from "@smastrom/react-rating";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const { user } = useContext(AuthContext);
@@ -19,7 +20,7 @@ const ProductDetails = () => {
     const cart = [id];
 
     const newCart = { email, cart };
-    console.log(newCart);
+    // console.log(newCart);
     fetch(`http://localhost:5000/user/${email}`, {
       method: "PUT",
       headers: {
@@ -29,7 +30,9 @@ const ProductDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.modifiedCount == 1) {
+          toast.success("Added to cart!");
+        }
       });
   };
 

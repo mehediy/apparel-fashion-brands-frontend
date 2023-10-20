@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import CartCard from "../Components/Shop/CartCard";
 import { AuthContext } from "../Provider/AuthProvider";
 import Loading from "../Components/Loading";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { user } = useContext(AuthContext);
   const [cartItems, setCartItems] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [deleteComplete, setDeleteComplete] = useState(false);
   useEffect(() => {
     setLoading(true);
     fetch(`http://localhost:5000/user/${user.email}`)
@@ -16,7 +18,7 @@ const Cart = () => {
         setCartItems(data.cart);
         setLoading(false);
       });
-  }, []);
+  }, [deleteComplete]);
 
   useEffect(() => {
     if (!loading) {
@@ -34,6 +36,21 @@ const Cart = () => {
     }
   }, [cartItems, loading]);
 
+  const deleteHandler = (_id) => {
+    setDeleteComplete(false);
+    fetch(`http://localhost:5000/user/${user.email}/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.modifiedCount == 1) {
+          toast.success("Deleted!");
+          setDeleteComplete(true);
+        }
+      });
+  };
+
   // console.log(cartProducts);
   // console.log(cartItems);
 
@@ -48,7 +65,11 @@ const Cart = () => {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {cartProducts.map((product) => (
-            <CartCard key={product._id} data={product} />
+            <CartCard
+              key={product._id}
+              data={product}
+              deleteHandler={deleteHandler}
+            />
           ))}
         </div>
       )}
