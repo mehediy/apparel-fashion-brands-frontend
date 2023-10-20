@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../Components/Shop/ProductCard";
-import Slider from "../Components/Shop/Slider";
+import Slider from "../Components/Slider/Slider";
 import Loading from "../Components/Loading";
 
 const Products = () => {
   const { brand } = useParams();
   const [products, setProducts] = useState([]);
+  const [bannerLoading, setBannerLoading] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [banners, setBanners] = useState([]);
   useEffect(() => {
     setLoading(true);
     fetch(`http://localhost:5000/products/${brand}`)
@@ -18,9 +20,25 @@ const Products = () => {
       });
   }, [brand]);
 
+  useEffect(() => {
+    setBannerLoading(true);
+    fetch("/banners.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setBanners(data[`${brand}`]);
+        setBannerLoading(false);
+      });
+  }, [brand]);
+
   return (
     <div className="container mx-auto">
-      <Slider />
+      {bannerLoading ? (
+        <Loading />
+      ) : banners.banner.length == 0 ? (
+        ""
+      ) : (
+        <Slider banners={banners.banner} />
+      )}
       {loading ? (
         <div>
           <Loading />

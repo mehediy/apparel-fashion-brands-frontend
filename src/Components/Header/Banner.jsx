@@ -16,6 +16,8 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
+  const [bannerLoading, setBannerLoading] = useState(true);
+  const [banners, setBanners] = useState([]);
   return (
     <>
       <div className="max-w-[1920px] mx-auto h-[200px] sm:h-[350px] md:h-[600px] 2xl:h-[800px]">

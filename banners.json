@@ -1,0 +1,48 @@
+{
+  "bata": {
+    "banner": [
+      "https://i.ibb.co/h2JGYmC/bata-1.jpg",
+      "https://i.ibb.co/ngFtqxK/bata-2.jpg",
+      "https://i.ibb.co/1MCyRFW/bata-3.jpg"
+    ]
+  },
+  "apex": {
+    "banner": [
+      "https://i.ibb.co/s2BMx9H/apex-1.jpg",
+      "https://i.ibb.co/h2JGYmC/bata-1.jpg",
+      "https://i.ibb.co/ngFtqxK/bata-2.jpg"
+    ]
+  },
+  "aarong": {
+    "banner": [
+      "https://i.ibb.co/BcDR0vF/aarong-1.jpg",
+      "https://i.ibb.co/tKtdvYX/aarong-2.jpg",
+      "https://i.ibb.co/TtQhKhd/aarong-3.jpg"
+    ]
+  },
+  "easy": {
+    "banner": [
+      "https://i.ibb.co/R0zG6tb/easy-1.jpg",
+      "https://i.ibb.co/7xc380s/le-reve-1.jpg",
+      "https://i.ibb.co/tKtdvYX/aarong-2.jpg"
+    ]
+  },
+  "lereve": {
+    "banner": [
+      "https://i.ibb.co/7xc380s/le-reve-1.jpg",
+      "https://i.ibb.co/tKtdvYX/aarong-2.jpg",
+      "https://i.ibb.co/TtQhKhd/aarong-3.jpg"
+    ]
+  },
+  "calvinklein": {
+    "banner": []
+  },
+  "all": {
+    "banner": [
+      "https://i.ibb.co/BcDR0vF/aarong-1.jpg",
+      "https://i.ibb.co/ngFtqxK/bata-2.jpg",
+      "https://i.ibb.co/7xc380s/le-reve-1.jpg",
+      "https://i.ibb.co/tKtdvYX/aarong-2.jpg"
+    ]
+  }
+}
