@@ -27,7 +27,7 @@ const Cart = () => {
 
   useEffect(() => {
     if (!loading) {
-      fetch(`http://localhost:5000/cart-products`, {
+      fetch(`http://localhost:5000/user/${user.email}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
