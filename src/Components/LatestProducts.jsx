@@ -7,7 +7,7 @@ const LatestProducts = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/latest_products`)
+    fetch(`https://apparelfashion-server.vercel.app/latest_products`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

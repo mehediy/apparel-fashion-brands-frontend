@@ -8,7 +8,7 @@ const CartCard = ({ data, deleteHandler }) => {
   const { _id, brandId, name, brand, type, image, price, rating } = data;
   // const { user } = useContext(AuthContext);
   // const deleteHandler = (_id) => {
-  //   fetch(`http://localhost:5000/user/${user.email}/${_id}`, {
+  //   fetch(`https://apparelfashion-server.vercel.app/user/${user.email}/${_id}`, {
   //     method: "DELETE",
   //   })
   //     .then((res) => res.json())

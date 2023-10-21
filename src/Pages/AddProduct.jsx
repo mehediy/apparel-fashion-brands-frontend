@@ -21,13 +21,16 @@ const AddProduct = () => {
     const image = form.image.value;
 
     const newProduct = { name, brand, type, price, description, image, rating };
-    fetch(`http://localhost:5000/products/${currentBrandId}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
+    fetch(
+      `https://apparelfashion-server.vercel.app/products/${currentBrandId}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged == true) {

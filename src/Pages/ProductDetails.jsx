@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const { image, brand, name, description, price } = product;
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
+    fetch(`https://apparelfashion-server.vercel.app/product/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
@@ -21,7 +21,7 @@ const ProductDetails = () => {
 
     const newCart = { email, cart };
     // console.log(newCart);
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://apparelfashion-server.vercel.app/user/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

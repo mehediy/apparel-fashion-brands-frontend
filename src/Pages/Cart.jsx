@@ -12,7 +12,7 @@ const Cart = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/user/${user.email}`)
+    fetch(`https://apparelfashion-server.vercel.app/user/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.cart) {
@@ -27,7 +27,7 @@ const Cart = () => {
 
   useEffect(() => {
     if (!loading) {
-      fetch(`http://localhost:5000/user/${user.email}`, {
+      fetch(`https://apparelfashion-server.vercel.app/user/${user.email}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -42,9 +42,12 @@ const Cart = () => {
   }, [cartItems]);
 
   const deleteHandler = (_id) => {
-    fetch(`http://localhost:5000/user/${user.email}/${_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://apparelfashion-server.vercel.app/user/${user.email}/${_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

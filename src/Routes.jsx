@@ -37,7 +37,9 @@ const routes = createBrowserRouter([
       {
         path: "/product/update/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://apparelfashion-server.vercel.app/product/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <UpdateProduct />

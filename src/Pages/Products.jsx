@@ -12,7 +12,7 @@ const Products = () => {
   const [banners, setBanners] = useState([]);
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/products/${brand}`)
+    fetch(`https://apparelfashion-server.vercel.app/products/${brand}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
