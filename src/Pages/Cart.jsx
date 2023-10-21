@@ -15,7 +15,12 @@ const Cart = () => {
     fetch(`http://localhost:5000/user/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setCartItems(data.cart);
+        if (data && data.cart) {
+          setCartItems(data.cart);
+        }
+        setLoading(false);
+      })
+      .catch(() => {
         setLoading(false);
       });
   }, []);
@@ -59,8 +64,10 @@ const Cart = () => {
         My Cart
       </h1>
 
-      {loading == true ? (
+      {loading === true ? (
         <Loading />
+      ) : cartProducts.length === 0 ? (
+        <p>No items in your cart</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {cartProducts.map((product) => (

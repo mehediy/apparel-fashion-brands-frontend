@@ -30,8 +30,10 @@ const ProductDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount == 1) {
+        if ((data.modifiedCount || data.upsertedCount) == 1) {
           toast.success("Added to cart!");
+        } else if (data.modifiedCount == 0 && data.matchedCount == 1) {
+          toast.success("Already added to cart!");
         }
       });
   };
