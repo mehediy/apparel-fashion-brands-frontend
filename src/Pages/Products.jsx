@@ -39,7 +39,7 @@ const Products = () => {
       ) : (
         <Slider banners={banners.banner} />
       )}
-      <div className="container mx-auto pb-16">
+      <div className="container mx-auto px-4 pb-16">
         {loading ? (
           <div>
             <Loading />
