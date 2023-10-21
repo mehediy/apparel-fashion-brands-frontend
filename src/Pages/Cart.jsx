@@ -9,7 +9,7 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [deleteComplete, setDeleteComplete] = useState(false);
+
   useEffect(() => {
     setLoading(true);
     fetch(`http://localhost:5000/user/${user.email}`)
@@ -18,7 +18,7 @@ const Cart = () => {
         setCartItems(data.cart);
         setLoading(false);
       });
-  }, [deleteComplete]);
+  }, []);
 
   useEffect(() => {
     if (!loading) {
@@ -34,10 +34,9 @@ const Cart = () => {
           setCartProducts(data);
         });
     }
-  }, [cartItems, loading]);
+  }, [cartItems]);
 
   const deleteHandler = (_id) => {
-    setDeleteComplete(false);
     fetch(`http://localhost:5000/user/${user.email}/${_id}`, {
       method: "DELETE",
     })
@@ -46,12 +45,12 @@ const Cart = () => {
         // console.log(data);
         if (data.modifiedCount == 1) {
           toast.success("Deleted!");
-          setDeleteComplete(true);
+          const updatedCart = cartProducts.filter((item) => item._id !== _id);
+          setCartProducts(updatedCart);
         }
       });
   };
 
-  // console.log(cartProducts);
   // console.log(cartItems);
 
   return (
